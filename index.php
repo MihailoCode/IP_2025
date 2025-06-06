@@ -1,52 +1,113 @@
+<?php
+
+$a=-5;
+
+$niz=["jabuka","kruska","sljiva","kajsija","dunja"];
+$niz[7]="malina";
+
+$osobe=[
+
+    ["ime"=>"Marko","prezime"=>"Markovic","godiste"=>"2000","ocene"=>array(6,7,8,9)],
+    ["ime"=>"Stefan","prezime"=>"Markovic","godiste"=>"2002","ocene"=>array(6,7,8,9)],
+    ["ime"=>"Marko","prezime"=>"Markovic","godiste"=>"2005","ocene"=>array(6,8,8,8)],
+    ["ime"=>"Jelena","prezime"=>"Markovic","godiste"=>"2001","ocene"=>array(6,7,10,10)],
+    ["ime"=>"Marko","prezime"=>"Mirkovic","godiste"=>"2003","ocene"=>array(6,9,9,8)],
+    ["ime"=>"Marko","prezime"=>"Markovic","godiste"=>"2000","ocene"=>array(6,7,8,9)],
+    ["ime"=>"Stefan","prezime"=>"Markovic","godiste"=>"2002","ocene"=>array(6,7,8,9)],
+    ["ime"=>"Marko","prezime"=>"Markovic","godiste"=>"2005","ocene"=>array(6,8,8,8)],
+    ["ime"=>"Jelena","prezime"=>"Markovic","godiste"=>"2001","ocene"=>array(6,7,10,10)],
+    ["ime"=>"Marko","prezime"=>"Mirkovic","godiste"=>"2003","ocene"=>array(6,9,9,8)],
+    ["ime"=>"Marko","prezime"=>"Markovic","godiste"=>"2000","ocene"=>array(6,7,8,9)],
+    ["ime"=>"Stefan","prezime"=>"Markovic","godiste"=>"2002","ocene"=>array(6,7,8,9)],
+    ["ime"=>"Marko","prezime"=>"Markovic","godiste"=>"2005","ocene"=>array(6,8,8,8)],
+    ["ime"=>"Jelena","prezime"=>"Markovic","godiste"=>"2001","ocene"=>array(6,7,10,10)],
+    ["ime"=>"Marko","prezime"=>"Mirkovic","godiste"=>"2003","ocene"=>array(6,9,9,8)],
+    ["ime"=>"Marko","prezime"=>"Markovic","godiste"=>"2000","ocene"=>array(6,7,8,9)],
+    ["ime"=>"Stefan","prezime"=>"Markovic","godiste"=>"2002","ocene"=>array(6,7,8,9)],
+    ["ime"=>"Marko","prezime"=>"Markovic","godiste"=>"2005","ocene"=>array(6,8,8,8)],
+    ["ime"=>"Jelena","prezime"=>"Markovic","godiste"=>"2001","ocene"=>array(6,7,10,10)],
+    ["ime"=>"Marko","prezime"=>"Mirkovic","godiste"=>"2003","ocene"=>array(6,9,9,8)],
+
+
+];
+
+
+
+?>
+
 <html>
 
-<head>
-    <title>Naslov teksta</title>
-</head>
+<head></head>
 
 <body>
 
 <?php
 
-echo "Zdravo svete!<br>";
-$a=5;
-$b=10;
-echo $a+$b;
-$a="<br>ovo je tekst ";
-$b="i ovo je neki tekst";
-echo $a.$b." ovo je tekst<br>";
-
-$x=12.2345;
-
-function Test()
+if($a>0)
 {
-    global $x;
-    static $n=0;
-    
-    $n=$n+1;
-    echo "Promenjiva x unutar fje je $n<br>";
+?>
+    <h1>Promenjiva a je veca od 0</h1>
+<?php
 }
-
-echo "Promenjiva x van fje je $x<br>";
-Test();
-Test();
-Test();
-Test();
-var_dump($x);
-$niz=array("mika","pera","zika",123,64.45235);
-var_dump($niz);
-define("NASLOV","Dobrodošli!");
-$NASLOV=123;
-echo $NASLOV." ".NASLOV;
-
-foreach($niz as $i)
+else
 {
-    echo "<br>".$i."<br>";
+?>
+    <p>Promenjiva a nije veca od 0</p>
+<?php
 }
+?>
 
+<ul>
+
+<?php
+
+foreach($niz as $pom)
+{
+?>
+<li> <?= $pom ?> </li>
+
+<?php
+
+}
 
 ?>
+</ul>
+
+
+<table border="2">
+
+<tr>
+
+<th>Ime</th>
+<th>Prezime</th>
+<th>Godiste</th>
+<th>Ocene</th>
+
+</tr>
+
+<?php foreach($osobe as $pom) 
+{
+?>
+<tr>
+
+<td> <?= $pom["ime"] ?> </td>
+<td> <?= $pom["prezime"] ?> </td>
+<td> <?= $pom["godiste"] ?> </td>
+<td> <?= implode(", ",$pom["ocene"]) ?> </td>
+
+</tr>
+
+<?php  
+
+}
+?>
+
+
+</table>
+
 
 </body>
 
+
 </html>
+
