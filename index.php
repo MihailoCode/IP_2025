@@ -1,21 +1,22 @@
+<?php
+$cookie_name = "user";
+$cookie_value = "Milan Milanovic";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 dan
+?>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>CRUD</title>
-</head>
 <body>
-<header><?php include './templates/header.php';?></header>
-<nav><?php include './templates/nav.php';?></nav>
-	<form action="controllerOsobe.php" method="post">
-		Ime: <br>
-		<input type="text" name="ime"><br>
-		Prezime: <br>
-		<input type="text" name="prezime"><br>
-		Godiste: <br>
-		<input type="text" name="godiste"><br>
-		<input type="submit" name="action" value="Unesi">
-	</form>
-<footer><?php include './templates/footer.php';?></footer>
+
+<?php
+if(!isset($_COOKIE[$cookie_name])) {
+     echo "Dobrodosli prvi put na nas sajt!";
+} else {
+     echo "Postojeci korisnik'" . $cookie_name . "'!<br>";
+     echo "Vrednost: " . $_COOKIE[$cookie_name];
+}
+?>
+
+<p><strong>Napomena:</strong> Da bi videli vrednost cookie-a mora se ponovo doci na stranicu.</p>
+
 </body>
 </html>
